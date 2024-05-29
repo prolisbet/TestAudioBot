@@ -52,10 +52,13 @@ def audio_to_numpy(audio_data):
         # Использование ffmpeg для декодирования байтового потока в массив NumPy
         audio_np, _ = (
             ffmpeg
-            .input('pipe:0', format='ogg')
+            .input('pipe:0')
             .output('pipe:1', format='wav', acodec='pcm_s16le', ar='16000')
             .run(input=audio_data.read(), capture_stdout=True, capture_stderr=True)
         )
+
+        with open("output.wav", "wb") as f:
+            f.write(audio_np)
     except Exception as e:
         logging.error(f"FFmpeg error: {e}")
         return None
@@ -115,6 +118,7 @@ def handle_voice_message(message):
     except Exception as e:
         logging.error(f"Error: {e}")
         bot.reply_to(message, 'Произошла ошибка при обработке вашего голосового сообщения.')
+
 
 
 # Основная функция для запуска бота
