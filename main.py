@@ -93,7 +93,7 @@ def audio_to_text(file_id):
 
 
 # Загрузка модели Whisper вне функций для улучшения производительности
-model = whisper.load_model('base')  # Или 'base' 'medium' 'large'
+model = whisper.load_model('medium')  # Или 'base' 'medium' 'large'
 
 
 # Обработчик команды /start
