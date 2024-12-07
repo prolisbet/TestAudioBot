@@ -6,13 +6,7 @@ import time
 import numpy as np
 import ffmpeg
 import telebot
-import sys
-import os
 
-# Добавляем путь к директории в sys.path
-config_path = r'C:\Users\lizat\OneDrive\Documents\CONFIG'
-if config_path not in sys.path:
-    sys.path.append(config_path)
 
 from config1 import BOT_TOKEN
 
